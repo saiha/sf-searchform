@@ -1,0 +1,68 @@
+#modal-content{
+  width:50%;
+  margin:1.5em auto 0;
+  padding:10px 20px;
+  border:2px solid #aaa;
+  background:#fff;
+  z-index:2;
+}
+
+.modal-p{
+  margin-top:1em;
+}
+
+.modal-p:first-child{
+  margin-top:0;
+}
+
+.button-link{
+  color:#00f;
+  text-decoration:underline;
+}
+ 
+.button-link:hover{
+  cursor:pointer;
+  color:#f00;
+}
+
+.tag-on {
+  background: url('../img/spf_tag4_on.png') no-repeat right top;
+  padding: 0 20px 0 0;
+  float: left;
+  text-decoration: none;
+  margin: 0 2px;
+}
+
+.tag-on span{
+  background: url('../img/spf_tag4_on.png') no-repeat left top;
+  line-height: 35px;
+  display: block;
+  padding: 0 0 0 20px;
+  color: #FFF;
+  float: left;
+  cursor: pointer;
+}
+
+.tag-off {
+  background: url('../img/spf_tag4_off.png') no-repeat right top;
+  padding: 0 20px 0 0;
+  float: left;
+  text-decoration: none;
+  margin: 0 2px;
+}
+
+.tag-off span{
+  background: url('../img/spf_tag4_off.png') no-repeat left top;
+  line-height: 35px;
+  display: block;
+  padding: 0 0 0 20px;
+  color: #000;
+  float: left;
+  cursor: pointer;
+}
+
+.tagUnit {
+  clear: both;
+  overflow: hidden;
+  display: inline-block;
+}
