@@ -40,13 +40,13 @@ var CategoryUnit = React.createClass({
     if ( this.props.checked ) {
       return (
         <div className="categoryUnit checked" onClick={this.getTagsOff}>
-          <img width="260" src={this.props.img_url}></img>
+          <img width="100" src={this.props.img_url}></img>
         </div>
       );
     } else {
       return (
         <div className="categoryUnit" onClick={this.getTagsOn}>
-          <img width="260" src={this.props.img_url}></img>
+          <img width="100" src={this.props.img_url}></img>
         </div>
       );
     }
@@ -148,8 +148,24 @@ var TagArea = React.createClass({
 var CategoryArea = React.createClass({
   getInitialState: function() {
     return {categories:[
-      {title:'Protools', category:[71,76], img_url:'http://sleepfreaks-dtm.com/wordpress/wp-content/themes/dsanctuary/images/protools.png', checked:false},
-      {title:'Logic', category:[74,73], img_url:'http://sleepfreaks-dtm.com/wordpress/wp-content/themes/dsanctuary/images/logic.png', checked:false},
+      {title:'Protools', category:[71,76], img_url:'/img/DAW/ProTools.png', checked:false},
+      {title:'cubase', category:[72,75], img_url:'/img/DAW/cubase.png', checked:false},
+      {title:'finale', category:[1084], img_url:'/img/DAW/finale.png', checked:false},
+      {title:'FL', category:[1731,1732], img_url:'/img/DAW/FL.png', checked:false},
+      {title:'GarageBand', category:[1088], img_url:'/img/DAW/GarageBand.png', checked:false},
+      {title:'Live', category:[1642,1641,1727], img_url:'/img/DAW/Live.png', checked:false},
+      {title:'Logic', category:[74,73], img_url:'/img/DAW/Logic.png', checked:false},
+      {title:'mascine', category:[1721,1722,1724], img_url:'/img/DAW/mascine.png', checked:false},
+      {title:'studioone', category:[990,991], img_url:'/img/DAW/studioone.png', checked:false},
+      {title:'traktor', category:[1705], img_url:'/img/DAW/traktor.png', checked:false},
+      {title:'trouble-shooting', category:[32], img_url:'/img/menu/trouble-shooting.png', checked:false},
+      {title:'mixing-category', category:[17], img_url:'/img/menu/mixing-category.png', checked:false},
+      {title:'synthe-lesson', category:[982], img_url:'/img/menu/synthe-lesson.png', checked:false},
+      {title:'soft-synthe', category:[956], img_url:'/img/menu/soft-synthe.png', checked:false},
+      {title:'synthe-recipie', category:[1680], img_url:'/img/menu/synthe-recipie.png', checked:false},
+      {title:'making-recipie', category:[1693], img_url:'/img/menu/making-recipie.png', checked:false},
+      {title:'music-theory', category:[1720,930,1710], img_url:'/img/menu/music-theory.png', checked:false},
+      {title:'expert-terms', category:[173], img_url:'/img/menu/expert-terms.png', checked:false},
       ]};
   },
   onClick: function(category_var){
@@ -350,22 +366,15 @@ var BootstrapModal = React.createClass({
   render: function() {
     this.getPosts();
     var confirmButton = null;
-    var cancelButton = null;
     console.log('modal tags');
     console.log( this.state.tags );
+    console.log(this.props.onConfirm);
     if (this.props.confirm) {
       confirmButton = (
         <BootstrapButton
           onClick={this.handleConfirm}
           className="btn-primary">
           {this.props.confirm}
-        </BootstrapButton>
-      );
-    }
-    if (this.props.cancel) {
-      cancelButton = (
-        <BootstrapButton onClick={this.handleCancel} className="btn-default">
-          {this.props.cancel}
         </BootstrapButton>
       );
     }
@@ -389,7 +398,6 @@ var BootstrapModal = React.createClass({
               <PostArea ref="postArea" posts={this.state.posts} />
             </div>
             <div className="modal-footer">
-              {cancelButton}
               {confirmButton}
             </div>
           </div>
@@ -415,14 +423,22 @@ var BootstrapModal = React.createClass({
 });
 
 var SearchComponent = React.createClass({
+  handleCancel: function() {
+    if (confirm('Are you sure you want to cancel?')) {
+      this.refs.modal.close();
+    }
+  },
+  closeModal: function() {
+    this.refs.modal.close();
+  },
   render: function() {
     var modal = null;
     modal = (
       <BootstrapModal
         ref="modal"
-        confirm="OK"
-        cancel="Cancel"
-        title="検索フォーム">
+        confirm="閉じる"
+        title="検索フォーム"
+        onConfirm={this.closeModal}>
       </BootstrapModal>
     );
     return (
@@ -436,7 +452,6 @@ var SearchComponent = React.createClass({
   },
   openModal: function() {
     this.refs.modal.open();
-    console.log('open modal');
   },
 });
 

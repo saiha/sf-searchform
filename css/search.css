@@ -19,7 +19,7 @@
   color:#00f;
   text-decoration:underline;
 }
- 
+
 .button-link:hover{
   cursor:pointer;
   color:#f00;
@@ -65,4 +65,16 @@
   clear: both;
   overflow: hidden;
   display: inline-block;
+}
+
+@media (min-width: 768px) {
+  .modal-dialog {
+      width: 738px;!important
+      margin: 30px auto;
+  }
+}
+
+.categoryUnit {
+  display: inline-block;
+  margin-bottom: 20px;
 }
